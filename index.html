@@ -4,328 +4,656 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Gratitude Indonesia — Ekosistem Pengembangan Manusia Berbasis Gratitude.">
+  <meta name="description" content="Gratitude Indonesia - Membangun kesadaran, mengembangkan manusia, dan menciptakan dampak melalui praktik gratitude.">
   <title>Gratitude Indonesia | Bersyukur, Bertumbuh, Berdampak</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --cream: #F7F4EC;
+      --ivory: #F7F4EC;
       --sage: #DCE8DF;
       --gold: #B89B62;
       --olive: #34483D;
-      --text: #344239;
-      --muted: #68756D;
-      --white: #FFFDF8;
+      --dark: #26372F;
+      --muted: #68756C;
+      --white: #FFFFFF;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      margin: 0;
-      background: var(--cream);
-      color: var(--text);
-      font-family: Arial, sans-serif;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--ivory);
+      color: var(--dark);
       line-height: 1.7;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
     .container {
-      width: min(1100px, 90%);
+      width: min(1120px, 90%);
       margin: auto;
     }
 
     header {
-      padding: 24px 0;
+      background: rgba(247,244,236,.96);
+      border-bottom: 1px solid rgba(52,72,61,.12);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar {
+      min-height: 78px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
 
     .brand {
-      color: var(--olive);
-      font-weight: bold;
+      font-size: 18px;
+      font-weight: 700;
       letter-spacing: 2px;
-      font-size: 15px;
+      color: var(--olive);
     }
 
-    nav a {
-      color: var(--olive);
-      text-decoration: none;
-      margin-left: 22px;
-      font-size: 14px;
+    .brand span {
+      display: block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      color: var(--gold);
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .nav-contact {
+      background: var(--olive);
+      color: white;
+      padding: 11px 19px;
+      border-radius: 3px;
     }
 
     .hero {
-      padding: 110px 0 120px;
-      background: linear-gradient(135deg, var(--cream), var(--sage));
+      padding: 95px 0 85px;
+      background:
+        linear-gradient(90deg, rgba(247,244,236,.97), rgba(247,244,236,.82)),
+        url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1800&q=85') center/cover;
     }
 
     .eyebrow {
       color: var(--gold);
-      font-size: 13px;
-      font-weight: bold;
+      font-size: 12px;
+      font-weight: 700;
       letter-spacing: 3px;
       text-transform: uppercase;
+      margin-bottom: 20px;
     }
 
     h1, h2, h3 {
-      color: var(--olive);
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
       line-height: 1.2;
     }
 
     h1 {
-      font-family: Georgia, serif;
-      font-size: clamp(42px, 7vw, 72px);
-      max-width: 850px;
-      margin: 22px 0;
+      color: var(--olive);
+      font-size: clamp(38px, 5.5vw, 66px);
+      max-width: 780px;
+      margin-bottom: 24px;
     }
 
-    h2 {
-      font-family: Georgia, serif;
-      font-size: 38px;
-    }
-
-    .hero p {
-      color: var(--muted);
-      font-size: 19px;
-      max-width: 680px;
+    .hero-copy {
+      max-width: 620px;
+      color: #536158;
+      font-size: 17px;
+      margin-bottom: 30px;
     }
 
     .tagline {
-      color: var(--olive) !important;
-      font-weight: bold;
-      margin-top: 28px;
+      color: var(--olive);
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 30px;
     }
 
     .button {
       display: inline-block;
-      margin-top: 22px;
-      padding: 13px 24px;
-      border-radius: 30px;
       background: var(--olive);
       color: white;
-      text-decoration: none;
-      font-weight: bold;
+      padding: 14px 24px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      border-radius: 3px;
+      transition: .2s;
     }
 
-    section { padding: 85px 0; }
-
-    .intro {
-      max-width: 760px;
+    .button:hover {
+      background: var(--gold);
+      transform: translateY(-2px);
     }
 
-    .intro p, .card p {
+    .section {
+      padding: 85px 0;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 42px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(30px, 4vw, 43px);
+      color: var(--olive);
+      margin-bottom: 18px;
+    }
+
+    .section-heading p {
       color: var(--muted);
     }
 
-    .model {
-      background: var(--olive);
-      color: white;
-      padding: 38px;
-      border-radius: 22px;
-      margin-top: 35px;
+    .three-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
     }
 
-    .model h3 { color: white; }
+    .pillar {
+      padding: 32px;
+      min-height: 245px;
+      border: 1px solid rgba(52,72,61,.12);
+      background: rgba(255,255,255,.55);
+    }
 
-    .steps {
+    .pillar:nth-child(2) {
+      background: var(--sage);
+    }
+
+    .pillar:nth-child(3) {
+      background: #EEE7D8;
+    }
+
+    .pillar-number {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+
+    .pillar h3 {
+      color: var(--olive);
+      font-size: 25px;
+      margin-bottom: 14px;
+    }
+
+    .pillar p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .philosophy {
+      background: var(--olive);
+      color: white;
+    }
+
+    .philosophy .section-heading h2 {
+      color: white;
+    }
+
+    .philosophy .section-heading p {
+      color: #D8E0D9;
+    }
+
+    .journey {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 12px;
     }
 
-    .step {
-      padding: 18px 10px;
-      border: 1px solid rgba(255,255,255,.3);
-      border-radius: 12px;
-      text-align: center;
-      font-weight: bold;
+    .journey-item {
+      border-top: 2px solid var(--gold);
+      padding-top: 20px;
     }
 
-    .soft { background: var(--sage); }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-top: 35px;
+    .journey-item strong {
+      display: block;
+      color: #E1C78F;
+      font-size: 14px;
+      margin-bottom: 8px;
     }
 
-    .card {
-      background: var(--white);
-      padding: 28px;
-      border-radius: 18px;
-      border: 1px solid #E6E4DB;
-    }
-
-    .card h3 { font-family: Georgia, serif; }
-
-    .contact {
-      background: var(--olive);
-      color: white;
-      padding: 55px;
-      border-radius: 24px;
-    }
-
-    .contact h2 { color: white; }
-    .contact p { color: var(--sage); }
-
-    .contact .button {
-      background: var(--cream);
-      color: var(--olive);
-    }
-
-    footer {
-      padding: 30px 0;
-      color: var(--muted);
+    .journey-item span {
+      color: #E0E7E1;
       font-size: 13px;
     }
 
-    @media(max-width: 700px) {
-      header { align-items: flex-start; }
-      nav { display: none; }
-      .hero { padding: 75px 0; }
-      .steps, .cards { grid-template-columns: 1fr; }
-      .contact { padding: 30px 22px; }
+    .ecosystem {
+      background: var(--sage);
+    }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .audience {
+      background: rgba(255,255,255,.7);
+      padding: 22px 12px;
+      text-align: center;
+      color: var(--olive);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .corporate {
+      background: var(--ivory);
+    }
+
+    .corporate-panel {
+      background: var(--olive);
+      color: white;
+      padding: 55px;
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .corporate-panel h2 {
+      font-size: 37px;
+      margin-bottom: 20px;
+    }
+
+    .corporate-panel p {
+      color: #E0E7E1;
+      margin-bottom: 25px;
+    }
+
+    .corporate-list {
+      border-left: 2px solid var(--gold);
+      padding-left: 25px;
+      color: #E8E8DF;
+      font-size: 14px;
+    }
+
+    .corporate-list p {
+      margin-bottom: 13px;
+    }
+
+    .programs {
+      background: #EEECE4;
+    }
+
+    .program-card {
+      background: white;
+      padding: 30px;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .program-card h3 {
+      color: var(--olive);
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .program-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .community {
+      text-align: center;
+    }
+
+    .community .section-heading {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact {
+      background: var(--sage);
+      text-align: center;
+    }
+
+    .contact h2 {
+      color: var(--olive);
+      font-size: clamp(32px, 4vw, 45px);
+      margin-bottom: 18px;
+    }
+
+    .contact p {
+      max-width: 600px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 35px 0;
+      font-size: 12px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    footer p {
+      color: #C6D0C8;
+    }
+
+    @media (max-width: 800px) {
+      .navbar {
+        flex-wrap: wrap;
+        padding: 17px 0;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 12px 18px;
+      }
+
+      .three-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .journey {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .audience-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .corporate-panel {
+        grid-template-columns: 1fr;
+        padding: 32px 25px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header class="container">
-  <div class="brand">GRATITUDE INDONESIA</div>
-  <nav>
-    <a href="#tentang">Tentang</a>
-    <a href="#pendekatan">Pendekatan</a>
-    <a href="#layanan">Layanan</a>
-    <a href="#kontak">Kontak</a>
-  </nav>
+<header>
+  <div class="container navbar">
+    <a href="#" class="brand">
+      GRATITUDE
+      <span>INDONESIA</span>
+    </a>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#approach">Approach</a>
+      <a href="#programs">Programs</a>
+      <a href="#corporate">Corporate</a>
+      <a href="#community">Community</a>
+      <a href="#contact" class="nav-contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <main>
 
-<section class="hero">
-  <div class="container">
-    <div class="eyebrow">Human Development Ecosystem</div>
-    <h1>Bertumbuh dengan Kesadaran. Berdampak melalui Tindakan.</h1>
-    <p>
-      Mengembangkan manusia melalui pembelajaran, program,
-      pendampingan, dan komunitas dengan gratitude sebagai
-      praktik yang mendukung tumbuhnya kesadaran.
-    </p>
-    <p class="tagline">Bersyukur • Bertumbuh • Berdampak</p>
-    <a class="button" href="#kontak">Mari Berkolaborasi</a>
-  </div>
-</section>
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">A Human Development & Social Learning Ecosystem</div>
 
-<section id="tentang">
-  <div class="container intro">
-    <div class="eyebrow">Tentang Kami</div>
-    <h2>Gratitude sebagai Awal Pertumbuhan Manusia</h2>
-    <p>
-      Gratitude Indonesia adalah ekosistem pengembangan manusia
-      berbasis gratitude. Kami menghadirkan ruang belajar,
-      program pengembangan, pendampingan, dan komunitas untuk
-      mendukung pertumbuhan individu maupun organisasi.
-    </p>
-    <p>
-      Kami memandang gratitude sebagai praktik yang membantu
-      membuka kesadaran. Kesadaran tersebut kemudian dapat
-      menjadi dasar untuk memahami diri, menentukan tindakan,
-      dan belajar dari hasil yang diperoleh.
-    </p>
-  </div>
-</section>
+      <h1>Gratitude Changes How We See. Awareness Shapes How We Grow.</h1>
 
-<section class="soft" id="pendekatan">
-  <div class="container">
-    <div class="eyebrow">Our Development Architecture</div>
-    <h2>Dari Bersyukur Menuju Tindakan</h2>
-    <p>
-      Pertumbuhan membutuhkan proses yang saling terhubung.
-    </p>
-
-    <div class="model">
-      <h3>Human Development Flow</h3>
-      <div class="steps">
-        <div class="step">Gratitude</div>
-        <div class="step">Awareness</div>
-        <div class="step">Self-Image</div>
-        <div class="step">Action</div>
-        <div class="step">Feedback</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="layanan">
-  <div class="container">
-    <div class="eyebrow">Our Solutions</div>
-    <h2>Pengembangan untuk Berbagai Kebutuhan</h2>
-
-    <div class="cards">
-      <div class="card">
-        <h3>Corporate Diagnostic</h3>
-        <p>
-          Memahami kondisi organisasi, mengidentifikasi
-          kebutuhan, dan menentukan prioritas pengembangan.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Corporate Development</h3>
-        <p>
-          Program pengembangan manusia dan kapabilitas
-          yang dirancang berdasarkan kebutuhan organisasi.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Organizational Development</h3>
-        <p>
-          Pendampingan pengembangan organisasi dengan
-          memperhatikan manusia, proses, dan tindakan.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="soft">
-  <div class="container">
-    <div class="eyebrow">Our Ecosystem</div>
-    <h2>Ruang Bertumbuh Bersama</h2>
-    <div class="cards">
-      <div class="card"><h3>Learning</h3><p>Pengetahuan dan pengalaman belajar.</p></div>
-      <div class="card"><h3>Programs</h3><p>Program pengembangan terstruktur.</p></div>
-      <div class="card"><h3>Community</h3><p>Praktik dan pertumbuhan bersama.</p></div>
-    </div>
-    <p><strong>Individu • Keluarga • Pendidikan • Komunitas • Organisasi</strong></p>
-  </div>
-</section>
-
-<section id="kontak">
-  <div class="container">
-    <div class="contact">
-      <div class="eyebrow">Start a Conversation</div>
-      <h2>Mari Bertumbuh dan Berdampak Bersama.</h2>
-      <p>
-        Mari berdiskusi mengenai kebutuhan pengembangan
-        individu maupun organisasi Anda.
+      <p class="hero-copy">
+        Kami membangun kesadaran, mengembangkan kapasitas manusia,
+        dan mendorong pertumbuhan yang berdampak melalui praktik gratitude.
       </p>
-      <a class="button"
-         href="https://wa.me/6289638962843?text=Halo%20Gratitude%20Indonesia%2C%20saya%20ingin%20berdiskusi.">
-         Hubungi Kami melalui WhatsApp
+
+      <div class="tagline">Bersyukur • Bertumbuh • Berdampak</div>
+
+      <a href="#about" class="button">EXPLORE OUR ECOSYSTEM</a>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Who We Are</div>
+        <h2>More Than a Learning Program. A Growing Ecosystem.</h2>
+        <p>
+          Gratitude Indonesia merupakan ekosistem pengembangan manusia
+          yang mengintegrasikan institusi profesional, gerakan sosial,
+          dan pembelajaran berkelanjutan.
+        </p>
+      </div>
+
+      <div class="three-columns">
+        <article class="pillar">
+          <div class="pillar-number">01 / INSTITUTION</div>
+          <h3>Professional Foundation</h3>
+          <p>
+            Mengembangkan pendekatan, program, dan solusi pengembangan
+            manusia yang terstruktur dan dapat diterapkan.
+          </p>
+        </article>
+
+        <article class="pillar">
+          <div class="pillar-number">02 / MOVEMENT</div>
+          <h3>Collective Movement</h3>
+          <p>
+            Menghidupkan praktik gratitude sebagai gerakan kesadaran,
+            kepedulian, dan kontribusi bersama.
+          </p>
+        </article>
+
+        <article class="pillar">
+          <div class="pillar-number">03 / LEARNING</div>
+          <h3>Learning Ecosystem</h3>
+          <p>
+            Menghadirkan ruang belajar, pengalaman, komunitas,
+            dan praktik untuk pertumbuhan berkelanjutan.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section philosophy" id="approach">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Our Approach</div>
+        <h2>Gratitude as an Awareness-Enabling Practice.</h2>
+        <p>
+          Gratitude membuka ruang kesadaran. Kesadaran membantu manusia
+          melihat dirinya, menentukan tindakan, dan belajar dari hasilnya.
+        </p>
+      </div>
+
+      <div class="journey">
+        <div class="journey-item">
+          <strong>01. GRATITUDE</strong>
+          <span>Mengembangkan kesadaran atas hal-hal yang hadir dalam kehidupan.</span>
+        </div>
+        <div class="journey-item">
+          <strong>02. AWARENESS</strong>
+          <span>Melihat kondisi, pola pikir, dan pilihan dengan lebih jernih.</span>
+        </div>
+        <div class="journey-item">
+          <strong>03. SELF-IMAGE</strong>
+          <span>Membangun pemahaman dan gambaran diri yang lebih konstruktif.</span>
+        </div>
+        <div class="journey-item">
+          <strong>04. ACTION</strong>
+          <span>Menerjemahkan kesadaran menjadi tindakan nyata.</span>
+        </div>
+        <div class="journey-item">
+          <strong>05. FEEDBACK</strong>
+          <span>Menggunakan hasil dan pengalaman untuk penyesuaian berikutnya.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ecosystem">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Our Ecosystem</div>
+        <h2>Human Growth Across Different Contexts.</h2>
+        <p>
+          Praktik dan pendekatan kami dapat dikembangkan dalam berbagai
+          konteks kehidupan dan organisasi.
+        </p>
+      </div>
+
+      <div class="audience-grid">
+        <div class="audience">Individuals</div>
+        <div class="audience">Families</div>
+        <div class="audience">Education</div>
+        <div class="audience">Communities</div>
+        <div class="audience">Organizations</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section programs" id="programs">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Programs & Learning</div>
+        <h2>Learning That Moves Into Everyday Life.</h2>
+        <p>
+          Program pembelajaran yang menghubungkan pemahaman,
+          pengalaman, praktik, dan pertumbuhan.
+        </p>
+      </div>
+
+      <div class="three-columns">
+        <article class="program-card">
+          <h3>Gratitude Practice</h3>
+          <p>
+            Program praktik gratitude untuk membangun kesadaran
+            dan kebiasaan reflektif dalam kehidupan sehari-hari.
+          </p>
+        </article>
+
+        <article class="program-card">
+          <h3>Human Development</h3>
+          <p>
+            Pembelajaran dan pendampingan untuk pengembangan diri,
+            keluarga, pendidikan, dan komunitas.
+          </p>
+        </article>
+
+        <article class="program-card">
+          <h3>Community Learning</h3>
+          <p>
+            Pengembangan komunitas belajar dan pengalaman kolektif
+            untuk pertumbuhan serta kontribusi sosial.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section corporate" id="corporate">
+    <div class="container">
+      <div class="corporate-panel">
+        <div>
+          <div class="eyebrow">Corporate Solutions</div>
+          <h2>Developing People. Strengthening Organizations.</h2>
+          <p>
+            Kami membantu organisasi memahami kebutuhan pengembangan
+            manusia, meningkatkan kapasitas, dan menghubungkan
+            pengembangan dengan kinerja serta proses organisasi.
+          </p>
+          <a href="#contact" class="button">LET'S COLLABORATE</a>
+        </div>
+
+        <div class="corporate-list">
+          <p>Human Development</p>
+          <p>Performance Development</p>
+          <p>Organizational Development</p>
+          <p>Gratitude-Based Development</p>
+          <p>Learning & Development Programs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section community" id="community">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Community & Impact</div>
+        <h2>Growing Together. Creating Meaningful Impact.</h2>
+        <p>
+          Kami percaya pertumbuhan manusia dapat meluas menjadi
+          kontribusi bagi keluarga, komunitas, dan masyarakat.
+          Gratitude Indonesia membuka ruang untuk belajar,
+          berbagi pengalaman, dan berkolaborasi.
+        </p>
+      </div>
+
+      <a href="#contact" class="button">BE PART OF THE MOVEMENT</a>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="eyebrow">Partnership & Collaboration</div>
+      <h2>Let's Grow Something Meaningful Together.</h2>
+      <p>
+        Mari membangun kolaborasi untuk mengembangkan manusia,
+        memperkuat komunitas, dan menciptakan dampak yang berkelanjutan.
+      </p>
+      <a href="mailto:hello@gratitudeindonesia.org" class="button">
+        START A CONVERSATION
       </a>
     </div>
-  </div>
-</section>
+  </section>
 
 </main>
 
-<footer class="container">
-  Gratitude Indonesia — Human Development Ecosystem<br>
-  Bersyukur • Bertumbuh • Berdampak
+<footer>
+  <div class="container footer-content">
+    <div>
+      <strong>GRATITUDE INDONESIA</strong>
+      <p>Bersyukur • Bertumbuh • Berdampak</p>
+    </div>
+    <p>© 2026 Gratitude Indonesia. All rights reserved.</p>
+  </div>
 </footer>
 
 </body>
